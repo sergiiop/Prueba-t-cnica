@@ -1,14 +1,5 @@
 const string = 'anulalalunapaisajemontanaguaamoraromacomidaluzazulsillagatobotellacamarayosoypalindromocasaverdebanderaventanacangrejolarutanosaportootropasonaturaliniciaracaestoseralodoodolaresdonasbarcosmarcieloaviontierrapaisbicicletaestonoespalindromojugarseverlasalrevesusandounradarenelojorejero'
 
-const letra = 'abcdefghijk'
-for(let i=0; i<letra.length; i++){
-  const foo='efg'
-  console.log(i)
-  if(i === 6){
-    i= i + (foo.length)
-  }
-}
-
 const comprobePalindrome = (str) => {
   const reverseStr = str.split('').reverse().join('');
   
