@@ -8,17 +8,6 @@ const comprobePalindrome = (str) => {
 }
 
 const isPalindrome = (string) => {
-  /*const initialCompare = `${string[28]}${string[29]}${string[30]}`
-  const reversedCompare = initialCompare.split('').reverse().join('')
-  console.log(initialCompare)
-  console.log(reversedCompare)
-  console.log(string.includes(reversedCompare))
-  console.log(string.indexOf(reversedCompare))
-  console.log(string.indexOf(initialCompare))
-  const newString = string.slice(string.indexOf(initialCompare),string.indexOf(reversedCompare)+2 )
-  console.log(newString)
-  
-  */
   const thePalindromes = []
   
   for(let i = 0; i<string.length;i++){

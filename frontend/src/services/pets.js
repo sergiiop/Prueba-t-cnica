@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = import.meta.env.VITE_CRUD_URL
+const baseUrl = `${import.meta.env.VITE_CRUD_URL}/pets`
 
 export const getAllPets = async () => {
   // const res = new Promise((resolve) =>
