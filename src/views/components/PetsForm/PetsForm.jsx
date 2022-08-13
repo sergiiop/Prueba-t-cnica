@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { createAPet, updateAPet } from '../../../services/pets'
 import { useNavigate, useParams } from 'react-router-dom'
+import { InputsContainer, InputText, Title } from './PetsForm.styled'
 
-const PetsForm = ({ handleFetch, pets }) => {
+const PetsForm = ({ pets, setFetching, handleFetch }) => {
   const [inputName, setInputName] = useState('')
   const [inputAge, setInputAge] = useState('')
   const [inputSpecies, setInputSpecies] = useState('')
@@ -12,19 +13,23 @@ const PetsForm = ({ handleFetch, pets }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const agePet = parseInt(inputAge, 10)
-    const thePet = {
-      name: inputName,
-      age: agePet,
-      species: inputSpecies
+    try {
+      const agePet = parseInt(inputAge, 10)
+      const thePet = {
+        name: inputName,
+        age: agePet,
+        species: inputSpecies
+      }
+      if (params.id) {
+        await updateAPet(params.id, thePet)
+      } else {
+        await createAPet(thePet)
+      }
+      navigate('/')
+      handleFetch()
+    } catch (error) {
+      console.log(error.message)
     }
-    if (params.id) {
-      await updateAPet(params.id, thePet)
-    } else {
-      // await createAPet(thePet)
-    }
-    // handleFetch()
-    navigate('/')
   }
 
   useEffect(() => {
@@ -39,13 +44,20 @@ const PetsForm = ({ handleFetch, pets }) => {
       setIsDisabled(true)
     }
   }, [])
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input type='text' value={inputName} onChange={({ target }) => setInputName(target.value)} placeholder='Name' />
-      <input type='text' value={inputAge} onChange={({ target }) => setInputAge(target.value)} placeholder='Age' />
-      <input type='text' value={inputSpecies} onChange={({ target }) => setInputSpecies(target.value)} placeholder='Species' disabled={isDisabled} />
-      <button>Enviar</button>
-    </form>
+    <>
+      <Title>Add a new pet!</Title>
+      <form onSubmit={handleSubmit}>
+        <InputsContainer>
+
+          <InputText type='text' value={inputName} onChange={({ target }) => setInputName(target.value)} placeholder='Name' />
+          <InputText type='number' value={inputAge} onChange={({ target }) => setInputAge(target.value)} placeholder='Age' />
+          <InputText type='text' value={inputSpecies} onChange={({ target }) => setInputSpecies(target.value)} placeholder='Species' disabled={isDisabled} />
+        </InputsContainer>
+        <button>Enviar</button>
+      </form>
+    </>
   )
 }
 

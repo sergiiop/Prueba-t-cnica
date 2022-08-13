@@ -5,6 +5,23 @@ const key = import.meta.env.VITE_CRUD_KEY
 const baseUrl = `${BASE_URL}${key}/pets`
 
 export const getAllPets = async () => {
+  // const res = new Promise((resolve) =>
+  //   setTimeout(() => resolve([
+  //     {
+  //       _id: '5a033eeb364bf301523e9b92',
+  //       name: 'Bebe',
+  //       age: 2,
+  //       species: 'cat'
+  //     },
+  //     {
+  //       _id: '5a033eeb364bf301523e9b22',
+  //       name: 'Leo',
+  //       age: 1,
+  //       species: 'cat'
+  //     }
+  //   ]))
+  // )
+  // return res
   const res = await axios.get(baseUrl)
   return res.data
 }
