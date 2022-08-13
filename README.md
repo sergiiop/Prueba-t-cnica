@@ -1,11 +1,27 @@
-## Scripts Disponibles del proyecto frontend
+# Prueba Técnica Solucion
 
-### `npm run dev`
+En este repositorio se encuentran las soluciones planteadas en la Prueba
 
-### `npm run build`
+## Instalación del Ejercicio #1
 
-## Variables de entorno
+### Ingresar al directorio frontend
 
-En .env.example se encuentra la variable de entorno, colocar la URL de la API
+```bash
+cd .\frontend\
+```
 
-### VITE_CRUD_KEY
+### Instalar Paquetes
+
+```bash
+yarn || npm install
+```
+
+### Insertar URL de la API
+
+Renombrar el archivo .env.example por .env y colocar la URL de la API de [CrudCrud](https://crudcrud.com/)
+
+### Correr Proyecto
+
+```bash
+yarn dev || npm run dev
+```
