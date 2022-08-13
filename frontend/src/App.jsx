@@ -6,7 +6,7 @@ import PetsList from './views/components/PetsList'
 import { BrowserRouter, Route, Routes as Switch } from 'react-router-dom'
 
 const App = () => {
-  const [pets, setPets] = useState()
+  const [pets, setPets] = useState([])
   const [fetching, setFetching] = useState({
     loading: '',
     error: null

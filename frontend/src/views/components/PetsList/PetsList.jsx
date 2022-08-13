@@ -18,6 +18,9 @@ const PetsList = ({ pets, handleDelete, fetching }) => {
         {fetching.loading === 'rejected' && (
           <h1>Error</h1>
         )}
+        {pets.length === 0 && (
+          <h1>Add your first pet</h1>
+        )}
         {fetching.loading === 'success' && pets.map((pet) => {
           return (
             <PetContainer key={pet._id}>
